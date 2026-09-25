@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A visual map from AIBL conceptual governance to SimBench executable semantics, evidence, and theory feedback.">
+  <title>AIBL / SimBench — Runtime Governance Map</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="content.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="map-page">
+    <a class="skip-link" href="#where">Skip to the concept map</a>
+    <header class="masthead wrap">
+      <a class="wordmark" href="#research-loop">AIBL <span>/</span> SimBench</a>
+      <span class="masthead-note">RESEARCH ORIENTATION · v0.1</span>
+    </header>
+
+    <main class="wrap">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-heading">
+          <div>
+            <p class="eyebrow">FROM CONCEPT TO EXECUTABLE SEMANTICS</p>
+            <h1 id="page-title">Runtime Governance Map</h1>
+            <p class="versions">AIBL research series v5.0 <span aria-hidden="true">/</span> SimBench v1.0.0</p>
+          </div>
+          <button class="chip boundary-link" type="button" data-view="evidence" data-section="claim-boundary">SIMULATION_LIMITED <span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="hero-question">What happens when governance concepts<br class="desktop-break"> have to become executable?</p>
+        <p class="hero-description">A visual map from conceptual governance to executable semantics,<br class="desktop-break"> evidence, and theory feedback.</p>
+
+        <div class="research-loop" id="research-loop" role="group" aria-label="Research loop: AIBL Concept, Operational Translation, Executable Semantics, SimBench, Evidence, Theory Feedback, and back to AIBL refinement">
+          <div class="loop-node node-concept">
+            <button type="button" data-view="aibl" aria-describedby="tip-concept"><span class="node-index">01 / CONCEPT</span><span>AIBL Concept</span></button>
+            <span class="tooltip" id="tip-concept" role="tooltip">Distinguishing current behavior permission from technical capability.</span>
+          </div>
+          <span class="loop-arrow arrow-one" aria-hidden="true">→</span>
+          <div class="loop-node node-translation">
+            <button type="button" data-view="translation" aria-describedby="tip-translation"><span class="node-index">02 / TRANSLATE</span><span>Operational Translation</span></button>
+            <span class="tooltip" id="tip-translation" role="tooltip">Making implicit governance assumptions explicit enough to execute.</span>
+          </div>
+          <span class="loop-arrow arrow-two" aria-hidden="true">→</span>
+          <div class="loop-node node-semantics">
+            <button type="button" data-view="translation" aria-describedby="tip-semantics"><span class="node-index">03 / MAKE EXPLICIT</span><span>Executable Semantics</span></button>
+            <span class="tooltip" id="tip-semantics" role="tooltip">Giving decisions, identity, time, conflict, and re-entry an executable meaning.</span>
+          </div>
+          <span class="loop-arrow arrow-down" aria-hidden="true">↓</span>
+          <div class="loop-node node-simbench">
+            <button type="button" data-view="simbench" aria-describedby="tip-simbench"><span class="node-index">04 / IMPLEMENT</span><span>SimBench v1.0.0</span></button>
+            <span class="tooltip" id="tip-simbench" role="tooltip">A bounded, deterministic simulation artifact covering Phase 0–4.</span>
+          </div>
+          <span class="loop-arrow arrow-three" aria-hidden="true">←</span>
+          <div class="loop-node node-evidence">
+            <button type="button" data-view="evidence" aria-describedby="tip-evidence"><span class="node-index">05 / INSPECT</span><span>Evidence / Inspection</span></button>
+            <span class="tooltip" id="tip-evidence" role="tooltip">Inspecting implementation, verification structures, reported results, and interpretation.</span>
+          </div>
+          <span class="loop-arrow arrow-four" aria-hidden="true">←</span>
+          <div class="loop-node node-feedback">
+            <button type="button" data-view="evidence" data-section="theory-feedback" aria-describedby="tip-feedback"><span class="node-index">06 / REFINE</span><span>Theory Feedback</span></button>
+            <span class="tooltip" id="tip-feedback" role="tooltip">Returning explicit assumptions and bounded findings to AIBL refinement.</span>
+          </div>
+          <span class="loop-return" aria-hidden="true">↑ <span>Return to AIBL refinement</span></span>
+        </div>
+
+        <nav class="hero-nav" aria-label="Research navigation">
+          <button type="button" data-view="translation">Runtime Semantics <span aria-hidden="true">↗</span></button>
+          <button type="button" data-view="evidence">Evidence &amp; Boundaries <span aria-hidden="true">↗</span></button>
+          <button type="button" data-view="questions">Question Map <span aria-hidden="true">↗</span></button>
+          <button type="button" data-view="automation">Automation &amp; Tooling <span aria-hidden="true">↗</span></button>
+        </nav>
+      </section>
+
+      <section class="where-section" id="where" aria-labelledby="where-title" tabindex="-1">
+        <div class="section-heading"><div><p class="eyebrow">THE CONCEPT MAP</p><h2 id="where-title">Where everything sits</h2></div><p>A compact map of the AIBL / SimBench research structure.</p></div>
+        <div class="card-grid">
+          <button class="map-card" type="button" data-view="aibl" aria-label="Explore AIBL Conceptual Model">
+            <span class="card-top"><span class="eyebrow">01 / CONCEPT</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">AIBL<br>Conceptual Model</span>
+            <span class="distinction">Capability <span>≠</span> Permission</span>
+            <span class="mini-flow vertical"><span>Assurance</span><i aria-hidden="true">↓</i><span>Governance Permission</span><i aria-hidden="true">↓</i><span>Runtime Enforcement</span></span>
+            <span class="explore">Explore AIBL <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="map-card translation-card" type="button" data-view="translation" aria-label="Explore Operational Translation">
+            <span class="card-top"><span class="eyebrow">02 / TRANSLATION</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">Operational<br>Translation</span>
+            <span class="translation-flow"><span>Concept</span><i aria-hidden="true">→</i><span>Semantics</span><i aria-hidden="true">→</i><span>Rule</span><i aria-hidden="true">→</i><span>Scenario</span><i aria-hidden="true">→</i><span>Evidence</span></span>
+            <span class="card-labels">Identity · Time<br>Conflict · Re-entry</span>
+            <span class="explore">Explore Translation <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="map-card" type="button" data-view="simbench" aria-label="Explore SimBench Runtime Artifact">
+            <span class="card-top"><span class="eyebrow">03 / ARTIFACT</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">SimBench<br>Runtime Artifact</span>
+            <span class="phase-preview"><span><b>P0–2</b><small>Foundation</small></span><i aria-hidden="true"></i><span><b>P3</b><small>Boundaries</small></span><i aria-hidden="true"></i><span><b>P4</b><small>Freshness</small></span></span>
+            <span class="card-labels">Decision · State Transition<br>Re-entry · Evidence</span>
+            <span class="explore">Explore SimBench <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="map-card evidence-card" type="button" data-view="evidence" aria-label="Explore Evidence and Theory Feedback">
+            <span class="card-top"><span class="eyebrow">04 / EVIDENCE</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">Evidence<br>&amp; Theory Feedback</span>
+            <span class="evidence-preview"><span><b>E1</b> Implementation</span><span><b>E2</b> Verification</span><span><b>E3</b> Reported Results</span><span><b>E4</b> Interpretation</span></span>
+            <span class="feedback-caption">Evidence <span aria-hidden="true">→</span> Feedback <span aria-hidden="true">↺</span></span>
+            <span class="explore">Explore Evidence <span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="tooling-strip" aria-labelledby="tooling-title">
+        <div><h2 class="eyebrow" id="tooling-title">POST-PHASE4 TOOLING</h2><p>Operational support layer — separate from the SimBench v1.0.0 research artifact.</p></div>
+        <button type="button" class="tooling-control" data-view="automation" aria-label="Explore Automation and Tooling: Tier 1 Before, Tier 2 After, Human Gate Decide"><span>Tier 1 <small>BEFORE</small></span><i aria-hidden="true">→</i><span>Tier 2 <small>AFTER</small></span><i aria-hidden="true">→</i><span>Human Gate <small>DECIDE</small></span></button>
+      </section>
+    </main>
+
+    <footer class="wrap footer"><div><strong>AIBL / SimBench Runtime Governance Map</strong><p>Research orientation interface</p><p>AIBL research series v5.0 · SimBench v1.0.0</p></div><div><span class="chip">SIMULATION_LIMITED</span><p class="osaka">Mapped in Osaka.</p></div></footer>
+    <noscript><p class="noscript">The research map is visible without JavaScript. Enable JavaScript to explore the local detail views.</p></noscript>
+  </div>
+
+  <div id="detail-overlay" class="detail-overlay" hidden>
+    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+    <section id="detail-panel" class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-describedby="detail-purpose" tabindex="-1">
+      <div class="panel-toolbar"><button type="button" class="back-control" id="back-to-map">← Back to Map</button><div class="panel-actions"><button type="button" id="focus-control" aria-pressed="false">Focus</button><button type="button" id="close-control" aria-label="Close detail view">Close <span aria-hidden="true">×</span></button></div></div>
+      <div class="detail-reading">
+        <header class="detail-header"><div id="detail-chips" class="chips"></div><h2 id="detail-title" tabindex="-1"></h2><p id="detail-purpose"></p></header>
+        <div id="detail-content"></div>
+        <div class="detail-end"><button type="button" id="back-to-loop">Back to Research Loop ↑</button></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
