@@ -1,111 +1,193 @@
 # AIBL / SimBench Runtime Governance Map — v0.1
 
-English is the **canonical public wording** and remains the default root page. Japanese is a **faithful explanatory companion** in `ja/`, preserving the research structure, claim boundaries, and interaction model.
+An interactive research orientation map for the AIBL / SimBench work on runtime governance, operational translation, executable semantics, evidence, and theory feedback.
 
-English baseline: local commit `6e9fa54`. The user reported acceptance of the English structure, semantics, responsive layout, Drawer, Question Map, Automation, and ordinary print preview; Firefox was checked down to 320 px, and Chrome desktop showed no major problems. Those reports apply to the English baseline, not to the Japanese companion or the changes in this patch.
-
-Japanese status: **implemented and statically checked; real-browser acceptance pending**. This patch has not been committed.
+English is the **canonical public wording** and remains the default root page. Japanese is a **faithful explanatory companion** in `ja/`, preserving the same research structure, claim boundaries, and interaction model.
 
 ## Open locally
 
-- English: open `index.html`.
-- Japanese: open `ja/index.html`.
-- Use the small masthead links, `日本語` and `English`, to move between the two documents.
+- English: open `index.html`
+- Japanese: open `ja/index.html`
+- Use the language links in the masthead to move between the two documents.
 
-No server, installation, connection, or build step is required by the implementation. Keep the directory structure intact and enable JavaScript for the detail views. The persistent map is available without JavaScript.
+No server, installation, connection, build step, framework, CDN, or external font is required. Keep the directory structure intact and enable JavaScript for the detail views. The persistent map remains available without JavaScript.
 
-Both documents use relative file references and classic deferred scripts. Japanese loads `../styles.css`, its own `content.js`, and `../app.js`, in that order for the scripts. It does not load the English content first. Language links use `ja/index.html` and `../index.html`, with no leading slash.
+## Public scope
 
-There are no frameworks, Node/build tools, CDN resources, external fonts, localization libraries, network-request code, `fetch`, ES Modules, automatic locale detection, redirects, query routing, or language storage. Direct `file://` compatibility is supported by the file structure and references; Japanese browser execution has not yet been verified.
+This is a **research orientation interface**.
+
+It is **not**:
+
+- a simulator
+- a benchmark runner
+- a live dashboard
+- a safety proof
+- a certification artifact
+- a production runtime controller
+- a replacement for the AIBL / SimBench papers and implementation artifacts
+
+The map is intended to make the research structure easier to inspect and navigate.
+
+## Research loop
+
+```text
+AIBL Concept
+    ↓
+Operational Translation
+    ↓
+Executable Semantics
+    ↓
+SimBench v1.0.0
+    ← Evidence / Inspection
+    ← Theory Feedback
+    ↺ AIBL refinement
+```
+
+The map emphasizes three primary contribution layers:
+
+1. **Operational Translation Specification**
+2. **Bounded Executable Artifact**
+3. **Theory Feedback from Implementation**
+
+Comparative conceptual integration is treated as a secondary layer.
+
+## Core semantic dimensions
+
+The map organizes the runtime-governance material around seven dimensions:
+
+1. Decision State
+2. Identity / Binding / Provenance
+3. Temporal Validity
+4. Conflict / Precedence
+5. Failure / State Transition
+6. Re-entry
+7. Evidence / Replay
+
+## Claim boundaries
+
+The interface preserves the same claim discipline as the underlying research.
+
+Key boundaries include:
+
+- Capability is distinct from permission.
+- Governance permission is distinct from runtime enforcement.
+- `ALLOW`, `HOLD`, and `DENY` are distinct verdicts.
+- A verdict is not itself a runtime state.
+- `SUSPENDED`, `RUNNING`, and `EFFECT_MISMATCH` remain distinct.
+- Binding does not establish physical truth or lawful authority.
+- Freshness alone does not establish usability.
+- Technical recovery does not itself restore current permission.
+- Re-entry restores state only; it does not automatically execute an ordinary physical action.
+- Evidence reconstruction is not treated as a single undifferentiated concept.
+- E1–E4 are parallel evidence categories, not a ranking of evidence strength.
+- `SIMULATION_LIMITED` remains an explicit boundary.
+
+Historical source-reported formal results shown in the map remain:
+
+- Phase 3: `60/60`
+- Phase 4: `42/42`
+- Public suite: `614/614`
+
+These are historical/release-reported results, not independently reproduced measurements in AIBL v5.0, and they are not estimates of real-world safety probability.
+
+## Automation boundary
+
+Post-Phase4 Automation is shown as a separate tooling layer:
+
+```text
+Tier 1 = BEFORE
+Tier 2 = AFTER
+Human Gate = DECIDE
+```
+
+Tier 1 / Tier 2 are not Phase 4 runtime semantics and are not treated as Phase 5.
+
+## Interaction
+
+The interface provides:
+
+- persistent map navigation
+- shared detail Drawer
+- Focus Mode
+- Back to Map
+- related-view navigation
+- keyboard focus management
+- reduced-motion support
+- print mode
+- English / Japanese language navigation
+
+The English and Japanese versions share the same interaction structure.
+
+## Files
+
+| File | Responsibility |
+| --- | --- |
+| `index.html` | Canonical English map and detail-panel shell |
+| `content.js` | Canonical English research content |
+| `ja/index.html` | Japanese companion map |
+| `ja/content.js` | Japanese companion research content |
+| `styles.css` | Shared visual design and responsive layout |
+| `app.js` | Shared rendering and interaction behavior |
+| `docs/` | Implementation and localization specifications |
+| `README.md` | Public scope and orientation |
 
 ## Authoritative specifications
 
 - [English Implementation Specification](docs/AIBL_SimBench_Runtime_Governance_Map_Codex_Implementation_Spec_v0.1_20260922.md)
 - [Japanese Companion Localization Package](docs/AIBL_SimBench_Governance_Map_Japanese_Localization_Package_v0.1_20260924.md)
 
-Both documents remain unchanged. English `content.js` also remains unchanged. Work is restricted to this project; no existing SimBench repository was accessed or changed.
+## Browser acceptance
 
-This is a research orientation interface, not a simulator, benchmark runner, live dashboard, or paper replacement.
+v0.1 has been reviewed in real browsers in both languages.
 
-## Files
+Verified items include:
 
-| File | Responsibility |
-| --- | --- |
-| `index.html` | Canonical English persistent map and detail-panel shell; explicit Japanese link |
-| `content.js` | Canonical English research content |
-| `ja/index.html` | Japanese persistent map, tooltips, ARIA labels, controls, and English link |
-| `ja/content.js` | Six Japanese detail views and four Japanese UI strings |
-| `styles.css` | Shared visual design; language-link styling; Japanese-only wrapping and typography |
-| `app.js` | Shared rendering, selectors, modal behavior, focus management, and optional four-string localization hook |
-| `README.md` | Scope, local opening, editing, and verification record |
+- Firefox desktop
+- Firefox at 320 px
+- Chrome desktop
+- English / Japanese language switching
+- Drawer interaction
+- Question Map
+- Automation view
+- Focus Mode
+- print preview
+- no observed horizontal overflow at the accepted checkpoints
 
-Japanese content retains the same view keys, section types, IDs, phase/option codes, and related-view targets as English. Keep these identifiers stable when editing text. Content is inserted as DOM text, not interpreted HTML.
+No known publication blocker is currently recorded for v0.1.
 
-Shared `app.js` defaults to `Focus`, `Exit Focus`, `Supported / inspectable`, and `Not established`. Japanese `window.GovernanceMapUIStrings` overrides only these four labels. `SIMULATION_LIMITED` is not localized. The remaining controls are already localized in the Japanese HTML.
+## Public framing
 
-Japanese layout additions use `html[lang="ja"]`. Existing shared CSS rules, including the final English polish, remain intact. Language links have a separate class and are omitted in print. Japanese text may wrap or make a card taller; it is not shrunk to force the English geometry.
+The project should be described in terms such as:
 
-## Research and translation boundaries
+- bounded
+- inspectable
+- deterministic
+- explicit semantics
+- operational translation
+- theory feedback
+- source-linked
+- simulation-limited
+- local implementation specificity
+- claim boundary
 
-- The research loop returns from Theory Feedback to AIBL refinement.
-- Capability is distinct from permission; governance permission is distinct from runtime enforcement.
-- `ALLOW`, `HOLD`, and `DENY` remain visible and distinct. A verdict is not a runtime state.
-- `SUSPENDED`, `RUNNING`, `EFFECT_MISMATCH`, `SIMULATION_LIMITED`, E1–E4, Phase/Tier identifiers, and version tokens remain intact.
-- Temporal contracts differ by input family. The authority and observation examples are unchanged.
-- Binding does not establish physical truth or lawful authority.
-- Re-entry restores state only; technical recovery does not itself restore permission, and restoration does not automatically execute an ordinary physical action.
-- E1–E4 remain parallel categories, not a ranking of evidence strength.
-- E3 retains exactly `Phase 3: 60/60`, `Phase 4: 42/42`, and `Public suite: 614/614`. The same card retains all four qualifications: historical/release-reported, not independently reproduced in v5.0, `SIMULATION_LIMITED`, and not real-world safety estimates.
-- Post-Phase4 Tooling is separate from SimBench Phase 0–4. Tier 1 / Tier 2 are not Phase 4 runtime semantics or Phase 5. Human Gate retains Formal GO, deviation, closure, and publication/release authority.
-- Package terminology is used, including 運用的翻訳, アシュアランス, 再進入, and 主張範囲. Selected first detailed occurrences retain English terms in parentheses.
-- `Mapped in Osaka.` remains unchanged.
+Avoid describing it as:
 
-## Interaction
+- a novel runtime authorization architecture
+- a Physical AI safety proof
+- a certification equivalent
+- production-ready
+- a universal runtime-governance solution
 
-Cards, loop nodes, navigation controls, and the tooling strip open one shared Drawer. Local selectors expose one option per group. Related links change the content within that same panel.
+## Language policy
 
-Focus expands the current content into a reading view. Exit Focus returns to the Drawer without resetting selections. Close, Back to Map, Esc, and the normal Drawer backdrop close the panel. Focus returns to the original opener even after related-view navigation. Back to Research Loop explicitly focuses the first loop node.
+English is the canonical/default public version.
 
-Keyboard focus containment, the inert background, reduced-motion support, and tooltip dismissal use the unchanged shared behavior. At narrow widths the Japanese toolbar may wrap to keep all control labels readable.
+Japanese is a faithful explanatory companion intended to preserve, not strengthen, the claims made in English.
 
-The existing print styles omit navigation and include all options in the currently open detail view, even if collapsed on screen. The application does not generate a PDF.
+Selected technical tokens remain unchanged across languages, including:
 
-## Static verification — 2026-09-24
+`ALLOW`, `HOLD`, `DENY`, `SUSPENDED`, `EFFECT_MISMATCH`, `SIMULATION_LIMITED`, E1–E4, Phase, and Tier.
 
-Checks use local file inspection and Python's standard library. No dependencies were installed.
+---
 
-| Check | Result |
-| --- | --- |
-| English `content.js` and both specifications | SHA-256 unchanged |
-| English HTML | Only the explicit Japanese link added |
-| Shared JavaScript | Exactly the four-string hook and its two use sites changed; event/focus logic unchanged |
-| Existing shared CSS | Existing source preserved; additions limited to language links and Japanese selectors |
-| HTML structure | Balanced nesting, unique IDs, resolved ARIA/fragment references, and real buttons |
-| Shared content structure | Six views, matching section types/IDs/targets, seven dimensions, three phase groups, two runtime flows |
-| Semantics | Token/flow checks, identical temporal example and E3 totals, required qualifications, parallel evidence classes, and separate Automation layer |
-| File references | Both pages' relative scripts, stylesheet, and language links resolve within this project |
-| Dependencies | No prohibited network resources/APIs, modules, runtime language detection, or redirect code |
-| Source integrity | Japanese object initializers parsed as JSON; string/comment/delimiter checks and whitespace review |
-| JavaScript execution / console | Not tested in a browser for this patch |
-| Japanese layout, mobile, keyboard, print, and compatibility | Not tested in a browser; acceptance pending |
-
-These checks establish source consistency, not successful browser rendering or runtime behavior. Prior tool-led attempts to open local pages were blocked by the browser tool's URL policy; no Japanese browser verification or workaround was performed.
-
-## Real-browser review still required
-
-Open each language directly from disk in Firefox and a Chromium browser.
-
-1. Reload offline and inspect the console/network panel. Verify both explicit language links, including paths containing Japanese characters or spaces if applicable.
-2. Compare English against the accepted baseline: only the masthead language link should be newly visible. Confirm Focus/Exit Focus and the two English boundary headings are unchanged.
-3. In Japanese, open all six views, all seven semantic dimensions, P0–2 / P3 / P4, and both runtime flows. Confirm localized dynamic labels and all claim boundaries.
-4. At 320, 375, 719, 720, 1024, and 1440 px, check horizontal overflow, masthead links, long Hero/card titles, research-loop tooltips, bilingual terms, status rows, and E1–E4 panels.
-5. At 320 px, test the Japanese toolbar in both Drawer and Focus states. Confirm the wrapped controls remain readable and do not cover section targets when opening Claim Boundary or Theory Feedback.
-6. Use Tab / Shift+Tab, Enter / Space, Esc, Close, Back to Map, related links, and Back to Research Loop. Check the focus trap and restoration to the original opener.
-7. Inspect reduced motion and focus visibility. Check Japanese labels and reading order with assistive technology as available.
-8. Print-preview the Japanese map and Focus views, especially Translation and Evidence. Check long content, page breaks, complete technical expressions, and all E3 qualifications. Recheck English print preview after the shared hook/link change.
-
-## Known issues and status
-
-No specific functional defect has been identified by static review. Japanese browser runtime, visual layout, 320 px overflow, focus behavior, print pagination, and Firefox/Chromium compatibility remain unverified. The existing English user acceptance is not a Japanese acceptance result.
-
-No new functionality or redesign is included. This patch remains uncommitted and awaits human review.
+Mapped in Osaka.
