@@ -1,98 +1,111 @@
 # AIBL / SimBench Runtime Governance Map — v0.1
 
-A local research orientation interface for AIBL research series v5.0 and SimBench v1.0.0. The visible UI is English.
+English is the **canonical public wording** and remains the default root page. Japanese is a **faithful explanatory companion** in `ja/`, preserving the research structure, claim boundaries, and interaction model.
 
-Implementation status: **initial implementation ready for review; browser acceptance checks pending**. No Git commit has been created.
+English baseline: local commit `6e9fa54`. The user reported acceptance of the English structure, semantics, responsive layout, Drawer, Question Map, Automation, and ordinary print preview; Firefox was checked down to 320 px, and Chrome desktop showed no major problems. Those reports apply to the English baseline, not to the Japanese companion or the changes in this patch.
+
+Japanese status: **implemented and statically checked; real-browser acceptance pending**. This patch has not been committed.
 
 ## Open locally
 
-Open `index.html` directly in a current Chromium or Firefox desktop browser. No server, installation, network connection, or build step is required. Keep the four implementation files together.
+- English: open `index.html`.
+- Japanese: open `ja/index.html`.
+- Use the small masthead links, `日本語` and `English`, to move between the two documents.
 
-The interface uses HTML5, CSS, and classic JavaScript scripts. It has no external dependencies, CDN, downloaded fonts, Node, build tools, `fetch`, or ES Modules. All diagrams use HTML/CSS; no image assets are required. JavaScript must be enabled for detail views.
+No server, installation, connection, or build step is required by the implementation. Keep the directory structure intact and enable JavaScript for the detail views. The persistent map is available without JavaScript.
 
-## Authoritative specification and scope
+Both documents use relative file references and classic deferred scripts. Japanese loads `../styles.css`, its own `content.js`, and `../app.js`, in that order for the scripts. It does not load the English content first. Language links use `ja/index.html` and `../index.html`, with no leading slash.
 
-The source of truth is `docs/AIBL_SimBench_Runtime_Governance_Map_Codex_Implementation_Spec_v0.1_20260922.md`. It has not been modified.
+There are no frameworks, Node/build tools, CDN resources, external fonts, localization libraries, network-request code, `fetch`, ES Modules, automatic locale detection, redirects, query routing, or language storage. Direct `file://` compatibility is supported by the file structure and references; Japanese browser execution has not yet been verified.
 
-This project is a visual research map, not a simulator, benchmark runner, live results dashboard, or paper replacement. The implementation uses the specification supplied in this project only. No existing SimBench repository was accessed or changed.
+## Authoritative specifications
 
-- The research loop returns from Theory Feedback to AIBL refinement.
-- The four primary cards locate AIBL, Operational Translation, SimBench, and Evidence & Theory Feedback.
-- E1–E4 are parallel evidence/interpretation categories, not a ranking.
-- The reported 60/60, 42/42, and 614/614 figures retain their historical/release-reported and simulation-limited context. They were not independently reproduced in v5.0 and are not real-world safety estimates.
-- Re-entry restores state only; it does not automatically perform an ordinary physical action.
-- Post-Phase4 Tooling remains separate from the Phase 0–4 research artifact. Human authority remains explicit.
+- [English Implementation Specification](docs/AIBL_SimBench_Runtime_Governance_Map_Codex_Implementation_Spec_v0.1_20260922.md)
+- [Japanese Companion Localization Package](docs/AIBL_SimBench_Governance_Map_Japanese_Localization_Package_v0.1_20260924.md)
 
-## Files and content editing
+Both documents remain unchanged. English `content.js` also remains unchanged. Work is restricted to this project; no existing SimBench repository was accessed or changed.
+
+This is a research orientation interface, not a simulator, benchmark runner, live dashboard, or paper replacement.
+
+## Files
 
 | File | Responsibility |
 | --- | --- |
-| `index.html` | Semantic page structure, persistent research loop, four mini-map cards, tooling strip, footer, shared detail panel |
-| `styles.css` | Design tokens, diagrams, responsive layouts, visible focus, reduced motion, print layout |
-| `content.js` | Structured English detail content for all six views, seven semantic dimensions, phases, evidence and claim boundaries |
-| `app.js` | Shared detail rendering, local selectors, Focus View, keyboard handling and focus restoration |
-| `README.md` | Local opening instructions, scope, editing guide and acceptance status |
+| `index.html` | Canonical English persistent map and detail-panel shell; explicit Japanese link |
+| `content.js` | Canonical English research content |
+| `ja/index.html` | Japanese persistent map, tooltips, ARIA labels, controls, and English link |
+| `ja/content.js` | Six Japanese detail views and four Japanese UI strings |
+| `styles.css` | Shared visual design; language-link styling; Japanese-only wrapping and typography |
+| `app.js` | Shared rendering, selectors, modal behavior, focus management, and optional four-string localization hook |
+| `README.md` | Scope, local opening, editing, and verification record |
 
-Edit detailed text in `content.js`; preserve view keys and section IDs because controls refer to them. Persistent card and hero labels live in `index.html`. Content is inserted using DOM text nodes, not HTML-string interpolation. There is no content editor or localization framework.
+Japanese content retains the same view keys, section types, IDs, phase/option codes, and related-view targets as English. Keep these identifiers stable when editing text. Content is inserted as DOM text, not interpreted HTML.
 
-The two scripts load with `defer`, in the order `content.js`, then `app.js`. They do not request data or navigate to a separate route. The drawer and Focus View reuse the same content.
+Shared `app.js` defaults to `Focus`, `Exit Focus`, `Supported / inspectable`, and `Not established`. Japanese `window.GovernanceMapUIStrings` overrides only these four labels. `SIMULATION_LIMITED` is not localized. The remaining controls are already localized in the Japanese HTML.
+
+Japanese layout additions use `html[lang="ja"]`. Existing shared CSS rules, including the final English polish, remain intact. Language links have a separate class and are omitted in print. Japanese text may wrap or make a card taller; it is not shrunk to force the English geometry.
+
+## Research and translation boundaries
+
+- The research loop returns from Theory Feedback to AIBL refinement.
+- Capability is distinct from permission; governance permission is distinct from runtime enforcement.
+- `ALLOW`, `HOLD`, and `DENY` remain visible and distinct. A verdict is not a runtime state.
+- `SUSPENDED`, `RUNNING`, `EFFECT_MISMATCH`, `SIMULATION_LIMITED`, E1–E4, Phase/Tier identifiers, and version tokens remain intact.
+- Temporal contracts differ by input family. The authority and observation examples are unchanged.
+- Binding does not establish physical truth or lawful authority.
+- Re-entry restores state only; technical recovery does not itself restore permission, and restoration does not automatically execute an ordinary physical action.
+- E1–E4 remain parallel categories, not a ranking of evidence strength.
+- E3 retains exactly `Phase 3: 60/60`, `Phase 4: 42/42`, and `Public suite: 614/614`. The same card retains all four qualifications: historical/release-reported, not independently reproduced in v5.0, `SIMULATION_LIMITED`, and not real-world safety estimates.
+- Post-Phase4 Tooling is separate from SimBench Phase 0–4. Tier 1 / Tier 2 are not Phase 4 runtime semantics or Phase 5. Human Gate retains Formal GO, deviation, closure, and publication/release authority.
+- Package terminology is used, including 運用的翻訳, アシュアランス, 再進入, and 主張範囲. Selected first detailed occurrences retain English terms in parentheses.
+- `Mapped in Osaka.` remains unchanged.
 
 ## Interaction
 
-- Click a loop node, hero control, mini-map card, or tooling strip to open the associated detail view.
-- The hero's `SIMULATION_LIMITED` control opens Claim Boundary directly; Theory Feedback opens the feedback section.
-- Detail selectors expose one option at a time within each group. They are ordinary buttons: use Tab / Shift+Tab and Enter / Space.
-- On desktop, the modal drawer occupies approximately 42% of the viewport with a 420 px minimum. The map remains visible, with the corresponding card highlighted. Tablet uses approximately 58%; mobile below 720 px uses the full viewport.
-- Focus expands the same content into a centered reading view. Exit Focus returns to the drawer without resetting local selections. Back to Map, Close, or Esc closes the entire detail view and restores focus to the original opener, including after related-view navigation.
-- The modal uses an inert background and contains keyboard focus. Back to Research Loop explicitly returns to and focuses the first loop node.
-- Loop tooltips appear on hover/focus and can be dismissed with Esc. Reduced-motion preferences disable transitions.
-- Use the browser's print command while a detail view is open. Navigation is omitted from print, and all options within that view are included, even if collapsed on screen. No PDF is generated by the application.
+Cards, loop nodes, navigation controls, and the tooling strip open one shared Drawer. Local selectors expose one option per group. Related links change the content within that same panel.
 
-## Acceptance checks — 2026-09-22
+Focus expands the current content into a reading view. Exit Focus returns to the Drawer without resetting selections. Close, Back to Map, Esc, and the normal Drawer backdrop close the panel. Focus returns to the original opener even after related-view navigation. Back to Research Loop explicitly focuses the first loop node.
 
-Static checks were performed using Python's standard library and local file inspection; no test dependencies were installed.
+Keyboard focus containment, the inert background, reduced-motion support, and tooltip dismissal use the unchanged shared behavior. At narrow widths the Japanese toolbar may wrap to keep all control labels readable.
 
-| Area | Result |
+The existing print styles omit navigation and include all options in the currently open detail view, even if collapsed on screen. The application does not generate a PDF.
+
+## Static verification — 2026-09-24
+
+Checks use local file inspection and Python's standard library. No dependencies were installed.
+
+| Check | Result |
 | --- | --- |
-| HTML nesting, unique IDs, fragment targets, ARIA references, real button elements | Passed static checks |
-| Exactly four primary cards, six loop nodes, four hero controls | Passed static checks |
-| Six detail views; seven semantic dimensions; P0–2 / P3 / P4; ordinary action / re-entry | Passed structured-data checks |
-| Parallel E1–E4, historical-result qualifiers and `SIMULATION_LIMITED` | Passed structured-data checks and source review |
-| Separate Automation layer and explicit Human Gate | Implemented and source-reviewed |
-| Relative resource references; no external dependency or network-request code | Passed static checks |
-| Responsive breakpoints, reduced motion, visible focus and print styles | Present; browser behavior unverified |
-| Main text color pairs | Calculated contrast ratios: 12.44:1, 5.64:1, 4.57:1 and 5.02:1; not a full accessibility audit |
-| Drawer / Focus, keyboard trap, Esc and focus restoration | Implemented and source-reviewed; browser interaction unverified |
-| Direct `file://` startup and absence of console errors | Unverified in a browser |
-| Mobile overflow, visual balance, tooltip positioning and print pagination | Unverified in a browser |
-| Current Chromium and Firefox compatibility | Unverified in browsers |
-| Authoritative specification unchanged | SHA-256 matched before and after implementation |
+| English `content.js` and both specifications | SHA-256 unchanged |
+| English HTML | Only the explicit Japanese link added |
+| Shared JavaScript | Exactly the four-string hook and its two use sites changed; event/focus logic unchanged |
+| Existing shared CSS | Existing source preserved; additions limited to language links and Japanese selectors |
+| HTML structure | Balanced nesting, unique IDs, resolved ARIA/fragment references, and real buttons |
+| Shared content structure | Six views, matching section types/IDs/targets, seven dimensions, three phase groups, two runtime flows |
+| Semantics | Token/flow checks, identical temporal example and E3 totals, required qualifications, parallel evidence classes, and separate Automation layer |
+| File references | Both pages' relative scripts, stylesheet, and language links resolve within this project |
+| Dependencies | No prohibited network resources/APIs, modules, runtime language detection, or redirect code |
+| Source integrity | Japanese object initializers parsed as JSON; string/comment/delimiter checks and whitespace review |
+| JavaScript execution / console | Not tested in a browser for this patch |
+| Japanese layout, mobile, keyboard, print, and compatibility | Not tested in a browser; acceptance pending |
 
-Specification SHA-256:
+These checks establish source consistency, not successful browser rendering or runtime behavior. Prior tool-led attempts to open local pages were blocked by the browser tool's URL policy; no Japanese browser verification or workaround was performed.
 
-```text
-5EAEB8BF60E2D44530AE613745E60D779F4DE612846EB952AA0104B5069D9C6E
-```
+## Real-browser review still required
 
-The available browser automation tool rejected opening the local `file://` URL under its URL security policy. No alternate browser surface or indirect workaround was used. Static checks do not establish successful rendering or runtime behavior, so the full acceptance criteria are not yet signed off.
+Open each language directly from disk in Firefox and a Chromium browser.
 
-## Manual review checklist
+1. Reload offline and inspect the console/network panel. Verify both explicit language links, including paths containing Japanese characters or spaces if applicable.
+2. Compare English against the accepted baseline: only the masthead language link should be newly visible. Confirm Focus/Exit Focus and the two English boundary headings are unchanged.
+3. In Japanese, open all six views, all seven semantic dimensions, P0–2 / P3 / P4, and both runtime flows. Confirm localized dynamic labels and all claim boundaries.
+4. At 320, 375, 719, 720, 1024, and 1440 px, check horizontal overflow, masthead links, long Hero/card titles, research-loop tooltips, bilingual terms, status rows, and E1–E4 panels.
+5. At 320 px, test the Japanese toolbar in both Drawer and Focus states. Confirm the wrapped controls remain readable and do not cover section targets when opening Claim Boundary or Theory Feedback.
+6. Use Tab / Shift+Tab, Enter / Space, Esc, Close, Back to Map, related links, and Back to Research Loop. Check the focus trap and restoration to the original opener.
+7. Inspect reduced motion and focus visibility. Check Japanese labels and reading order with assistive technology as available.
+8. Print-preview the Japanese map and Focus views, especially Translation and Evidence. Check long content, page breaks, complete technical expressions, and all E3 qualifications. Recheck English print preview after the shared hook/link change.
 
-Run these checks in both current Chromium and Firefox after opening `index.html` directly:
+## Known issues and status
 
-1. Reload while offline. Confirm styling and details load, the console has no errors, and the page makes no external network requests.
-2. At desktop width (at least 1100 px), confirm the complete research loop is immediately visible, including its return path; check exactly four cards and the separate tooling strip.
-3. Open each of the six views. Confirm the desktop map stays visible, the correct card is highlighted, and related-view controls work.
-4. Select all seven semantic dimensions, all three phase groups, and both runtime flows. Check one local detail per group and all research/claim boundaries.
-5. Open Claim Boundary and Theory Feedback from the hero. Confirm the intended section is brought into view below the toolbar.
-6. Use only the keyboard: open a card with Enter and Space, traverse controls in both directions, test both ends of the focus trap, close with Esc, and confirm focus returns to the original control. Repeat after following related views.
-7. Open Focus, select details, use Exit Focus, then Back to Map. Also test Close, Esc and backdrop dismissal from a normal drawer. Confirm return navigation and scroll behavior.
-8. At 320, 375, 719, 720, 1024 and 1440 px viewport widths, check readability and absence of horizontal scrolling on both the map and all detail views. Mobile must show Back to Map.
-9. Enable reduced motion and inspect tooltip hover/focus/dismissal, visible focus, contrast and heading navigation with assistive technology as available.
-10. Print-preview a Focus view, including Translation and Evidence. Confirm all selected-view content is printable, selectors/navigation are omitted, and historical qualifiers remain beside the reported results.
+No specific functional defect has been identified by static review. Japanese browser runtime, visual layout, 320 px overflow, focus behavior, print pagination, and Firefox/Chromium compatibility remain unverified. The existing English user acceptance is not a Japanese acceptance result.
 
-## Known issues and review limitations
-
-No specific functional defect was found by static inspection. Browser runtime, rendering, print pagination, mobile overflow and assistive-technology behavior remain unverified because local-page browser access was blocked. This is a verification gap, not a passing browser acceptance result.
-
-No backend, external API, benchmark execution, search, theme switcher, localization, Phase 5, Tier 3, or other future-version feature is included.
+No new functionality or redesign is included. This patch remains uncommitted and awaits human review.

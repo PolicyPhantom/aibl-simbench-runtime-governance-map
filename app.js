@@ -3,6 +3,12 @@
   "use strict";
 
   var content = window.GovernanceMapContent;
+  var ui = Object.assign({
+    focus: "Focus",
+    exitFocus: "Exit Focus",
+    supportedInspectable: "Supported / inspectable",
+    notEstablished: "Not established"
+  }, window.GovernanceMapUIStrings || {});
   var map = document.getElementById("map-page");
   var overlay = document.getElementById("detail-overlay");
   var panel = document.getElementById("detail-panel");
@@ -129,7 +135,7 @@
         intro.appendChild(element("span", "chip", "SIMULATION_LIMITED"));
         node.appendChild(intro);
         var columns = element("div", "boundary-grid");
-        [["Supported / inspectable", section.supported], ["Not established", section.notEstablished]].forEach(function (column) {
+        [[ui.supportedInspectable, section.supported], [ui.notEstablished, section.notEstablished]].forEach(function (column) {
           var group = element("section", "boundary-column");
           group.appendChild(element("h4", "", column[0]));
           group.appendChild(list(column[1]));
@@ -179,7 +185,7 @@
     focused = value;
     overlay.classList.toggle("focus-mode", value);
     focusControl.setAttribute("aria-pressed", String(value));
-    focusControl.textContent = value ? "Exit Focus" : "Focus";
+    focusControl.textContent = value ? ui.exitFocus : ui.focus;
   }
 
   function openView(key, trigger, sectionId) {

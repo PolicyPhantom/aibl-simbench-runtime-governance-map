@@ -285,3 +285,25 @@ body.detail-open { overflow: hidden; }
   .flow-list li + li { margin-top: 18px; }
   .flow-list li + li::before { top: -20px; }
 }
+
+/* Explicit language navigation; English map styles above remain unchanged. */
+.language-link { display: inline-block; margin-inline-start: 12px; font-size: .75rem; font-weight: 500; letter-spacing: normal; white-space: nowrap; }
+
+/* Japanese companion: allow text to grow naturally without changing shared geometry. */
+html[lang="ja"] { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic UI", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; word-break: normal; }
+html[lang="ja"] .hero-heading > div { min-width: 0; }
+html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] .card-title { line-height: 1.4; letter-spacing: normal; }
+html[lang="ja"] .detail-reading { overflow-wrap: normal; }
+html[lang="ja"] .chip, html[lang="ja"] .label-list li { max-width: 100%; overflow-wrap: anywhere; }
+html[lang="ja"] .status-list { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+html[lang="ja"] .status-list dd { overflow-wrap: anywhere; }
+html[lang="ja"] .concept-distinction { white-space: pre-line; overflow-wrap: anywhere; }
+html[lang="ja"] .selector-buttons button { overflow-wrap: anywhere; }
+html[lang="ja"] .panel-toolbar { flex-wrap: wrap; }
+html[lang="ja"] .panel-toolbar button { white-space: nowrap; }
+@media (max-width: 719px) {
+  html[lang="ja"] .detail-section { scroll-margin-top: 132px; }
+}
+@media print {
+  .language-link { display: none; }
+}

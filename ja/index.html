@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AIBLの概念的ガバナンスから、SimBenchの実行可能な意味論、証拠、理論へのフィードバックまでをたどる視覚マップ。">
+  <title>AIBL / SimBench — 実行時ガバナンス・マップ</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="content.js" defer></script>
+  <script src="../app.js" defer></script>
+</head>
+<body>
+  <div id="map-page">
+    <a class="skip-link" href="#where">概念マップへ移動</a>
+    <header class="masthead wrap">
+      <a class="wordmark" href="#research-loop">AIBL <span>/</span> SimBench</a>
+      <span class="masthead-note">研究ナビゲーション · v0.1 <a class="language-link" href="../index.html" lang="en" hreflang="en">English</a></span>
+    </header>
+
+    <main class="wrap">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-heading">
+          <div>
+            <p class="eyebrow">概念から実行可能な意味論へ</p>
+            <h1 id="page-title">実行時ガバナンス・マップ</h1>
+            <p class="versions">AIBL research series v5.0 <span aria-hidden="true">/</span> SimBench v1.0.0</p>
+          </div>
+          <button class="chip boundary-link" type="button" data-view="evidence" data-section="claim-boundary">SIMULATION_LIMITED <span aria-hidden="true">↗</span></button>
+        </div>
+        <p class="hero-question">AIガバナンスの概念を、実行可能な形へ落とし込むと何が起きるのか？</p>
+        <p class="hero-description">概念的ガバナンスから、実行可能な意味論、証拠、理論へのフィードバックまでをたどる視覚マップ。</p>
+
+        <div class="research-loop" id="research-loop" role="group" aria-label="研究ループ：AIBL概念モデル、運用的翻訳、実行可能な意味論、SimBench、証拠・確認、理論へのフィードバック、AIBLの改良へ戻る">
+          <div class="loop-node node-concept">
+            <button type="button" data-view="aibl" aria-describedby="tip-concept"><span class="node-index">01 / 概念</span><span>AIBL 概念モデル</span></button>
+            <span class="tooltip" id="tip-concept" role="tooltip">現在の行動許可を、技術的能力とは区別して捉えます。</span>
+          </div>
+          <span class="loop-arrow arrow-one" aria-hidden="true">→</span>
+          <div class="loop-node node-translation">
+            <button type="button" data-view="translation" aria-describedby="tip-translation"><span class="node-index">02 / 翻訳</span><span>運用的翻訳</span></button>
+            <span class="tooltip" id="tip-translation" role="tooltip">暗黙のガバナンス上の前提を、実行できるほど明示的な形へ落とし込みます。</span>
+          </div>
+          <span class="loop-arrow arrow-two" aria-hidden="true">→</span>
+          <div class="loop-node node-semantics">
+            <button type="button" data-view="translation" aria-describedby="tip-semantics"><span class="node-index">03 / 明示化</span><span>実行可能な意味論</span></button>
+            <span class="tooltip" id="tip-semantics" role="tooltip">判断、同一性、時間、競合、再進入などに、実行可能な意味を与えます。</span>
+          </div>
+          <span class="loop-arrow arrow-down" aria-hidden="true">↓</span>
+          <div class="loop-node node-simbench">
+            <button type="button" data-view="simbench" aria-describedby="tip-simbench"><span class="node-index">04 / 実装</span><span>SimBench v1.0.0</span></button>
+            <span class="tooltip" id="tip-simbench" role="tooltip">Phase 0–4を対象とする、範囲を限定した決定論的シミュレーション・アーティファクトです。</span>
+          </div>
+          <span class="loop-arrow arrow-three" aria-hidden="true">←</span>
+          <div class="loop-node node-evidence">
+            <button type="button" data-view="evidence" aria-describedby="tip-evidence"><span class="node-index">05 / 確認</span><span>証拠・確認</span></button>
+            <span class="tooltip" id="tip-evidence" role="tooltip">実装、検証構造、報告結果、解釈を区別して確認します。</span>
+          </div>
+          <span class="loop-arrow arrow-four" aria-hidden="true">←</span>
+          <div class="loop-node node-feedback">
+            <button type="button" data-view="evidence" data-section="theory-feedback" aria-describedby="tip-feedback"><span class="node-index">06 / 改良</span><span>理論へのフィードバック</span></button>
+            <span class="tooltip" id="tip-feedback" role="tooltip">明示化された前提と限定的な知見を、AIBLの改良へ戻します。</span>
+          </div>
+          <span class="loop-return" aria-hidden="true">↑ <span>AIBLの改良へ戻る</span></span>
+        </div>
+
+        <nav class="hero-nav" aria-label="研究ナビゲーション">
+          <button type="button" data-view="translation">実行時の意味論 <span aria-hidden="true">↗</span></button>
+          <button type="button" data-view="evidence">証拠と主張範囲 <span aria-hidden="true">↗</span></button>
+          <button type="button" data-view="questions">問いの整理マップ <span aria-hidden="true">↗</span></button>
+          <button type="button" data-view="automation">自動化・支援ツール <span aria-hidden="true">↗</span></button>
+        </nav>
+      </section>
+
+      <section class="where-section" id="where" aria-labelledby="where-title" tabindex="-1">
+        <div class="section-heading"><div><p class="eyebrow">概念マップ</p><h2 id="where-title">全体像の中での位置づけ</h2></div><p>AIBL / SimBenchの研究構造を、4つの領域で整理します。</p></div>
+        <div class="card-grid">
+          <button class="map-card" type="button" data-view="aibl" aria-label="AIBL概念モデルの詳細を開く">
+            <span class="card-top"><span class="eyebrow">01 / 概念</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">AIBL<br>概念モデル</span>
+            <span class="distinction">能力 <span>≠</span> 許可</span>
+            <span class="mini-flow vertical"><span>アシュアランス</span><i aria-hidden="true">↓</i><span>ガバナンス上の許可</span><i aria-hidden="true">↓</i><span>実行時制御</span></span>
+            <span class="explore">AIBLを見る <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="map-card translation-card" type="button" data-view="translation" aria-label="運用的翻訳の詳細を開く">
+            <span class="card-top"><span class="eyebrow">02 / 翻訳</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">運用的翻訳</span>
+            <span class="translation-flow"><span>概念</span><i aria-hidden="true">→</i><span>意味論</span><i aria-hidden="true">→</i><span>ルール</span><i aria-hidden="true">→</i><span>シナリオ</span><i aria-hidden="true">→</i><span>証拠</span></span>
+            <span class="card-labels">同一性 · 時間<br>競合 · 再進入</span>
+            <span class="explore">運用的翻訳を見る <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="map-card" type="button" data-view="simbench" aria-label="SimBench実行アーティファクトの詳細を開く">
+            <span class="card-top"><span class="eyebrow">03 / アーティファクト</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">SimBench<br>実行アーティファクト</span>
+            <span class="phase-preview"><span><b>P0–2</b><small>基礎</small></span><i aria-hidden="true"></i><span><b>P3</b><small>境界</small></span><i aria-hidden="true"></i><span><b>P4</b><small>最新性</small></span></span>
+            <span class="card-labels">判断 · 状態遷移<br>再進入 · 証拠</span>
+            <span class="explore">SimBenchを見る <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="map-card evidence-card" type="button" data-view="evidence" aria-label="証拠と理論へのフィードバックの詳細を開く">
+            <span class="card-top"><span class="eyebrow">04 / 証拠</span><span class="card-mark" aria-hidden="true">↗</span></span>
+            <span class="card-title">証拠と<br>理論へのフィードバック</span>
+            <span class="evidence-preview"><span><b>E1</b> 実装</span><span><b>E2</b> 検証</span><span><b>E3</b> 報告結果</span><span><b>E4</b> 解釈</span></span>
+            <span class="feedback-caption">証拠 <span aria-hidden="true">→</span> フィードバック <span aria-hidden="true">↺</span></span>
+            <span class="explore">証拠を見る <span aria-hidden="true">→</span></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="tooling-strip" aria-labelledby="tooling-title">
+        <div><h2 class="eyebrow" id="tooling-title">PHASE 4後の支援ツール</h2><p>SimBench v1.0.0の研究アーティファクト本体とは分離された運用支援レイヤーです。</p></div>
+        <button type="button" class="tooling-control" data-view="automation" aria-label="自動化・支援ツールを開く。Tier 1は実行前、Tier 2は実行後、Human Gateは人間が判断する。"><span>Tier 1 <small>実行前</small></span><i aria-hidden="true">→</i><span>Tier 2 <small>実行後</small></span><i aria-hidden="true">→</i><span>Human Gate <small>人間が判断</small></span></button>
+      </section>
+    </main>
+
+    <footer class="wrap footer"><div><strong>AIBL / SimBench 実行時ガバナンス・マップ</strong><p>研究ナビゲーション</p><p>AIBL research series v5.0 · SimBench v1.0.0</p></div><div><span class="chip">SIMULATION_LIMITED</span><p class="osaka">Mapped in Osaka.</p></div></footer>
+    <noscript><p class="noscript">研究マップ自体はJavaScriptなしでも表示されます。詳細ビューを利用するにはJavaScriptを有効にしてください。</p></noscript>
+  </div>
+
+  <div id="detail-overlay" class="detail-overlay" hidden>
+    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+    <section id="detail-panel" class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detail-title" aria-describedby="detail-purpose" tabindex="-1">
+      <div class="panel-toolbar"><button type="button" class="back-control" id="back-to-map">← マップへ戻る</button><div class="panel-actions"><button type="button" id="focus-control" aria-pressed="false">集中表示</button><button type="button" id="close-control" aria-label="詳細表示を閉じる">閉じる <span aria-hidden="true">×</span></button></div></div>
+      <div class="detail-reading">
+        <header class="detail-header"><div id="detail-chips" class="chips"></div><h2 id="detail-title" tabindex="-1"></h2><p id="detail-purpose"></p></header>
+        <div id="detail-content"></div>
+        <div class="detail-end"><button type="button" id="back-to-loop">研究ループへ戻る ↑</button></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
