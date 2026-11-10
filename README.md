@@ -7,6 +7,7 @@
 
 
 Claim boundary: `SIMULATION_LIMITED`.
+
 An interactive research orientation map for the AIBL / SimBench work on runtime governance, operational translation, executable semantics, evidence, and theory feedback.
 
 English is the **canonical public wording** and remains the default root page. Japanese is a **faithful explanatory companion** in `ja/`, preserving the same research structure, claim boundaries, and interaction model.
