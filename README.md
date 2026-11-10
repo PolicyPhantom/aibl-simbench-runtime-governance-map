@@ -1,10 +1,10 @@
 # AIBL / SimBench Runtime Governance Map — v0.1
+
 ## Live Map
 
 - [English — Canonical Version](https://policyphantom.github.io/aibl-simbench-runtime-governance-map/)
 - [日本語 — Japanese Companion](https://policyphantom.github.io/aibl-simbench-runtime-governance-map/ja/)
 
-An interactive research orientation map for the AIBL / SimBench runtime-governance research series.
 
 Claim boundary: `SIMULATION_LIMITED`.
 An interactive research orientation map for the AIBL / SimBench work on runtime governance, operational translation, executable semantics, evidence, and theory feedback.
