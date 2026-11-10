@@ -1,5 +1,5 @@
 # AIBL / SimBench Runtime Governance Map — v0.1
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24106834.svg)](https://doi.org/10.5281/zenodo.24106834)
 ## Live Map
 
 - [English — Canonical Version](https://policyphantom.github.io/aibl-simbench-runtime-governance-map/)
